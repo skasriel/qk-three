@@ -226,6 +226,21 @@ function lightSetup() {
   var light = new THREE.AmbientLight( 0xffffff, 3 ); // soft white light
   scene.add( light );
 
+  // adds ambient light
+  //var ambient_light = new THREE.AmbientLight("rgb(54%, 0%, 0%)"); // soft white light
+  //scene.add( ambient_light );
+
+  //spotlight
+  var spotLight = new THREE.SpotLight( "rgb(54%, 0%, 0%)" );
+  spotLight.position.set( 100, 100, 100 );
+  spotLight.castShadow = true;
+  spotLight.shadow.mapSize.width = 1024;
+  spotLight.shadow.mapSize.height = 1024;
+  spotLight.shadow.camera.near = 500;
+  spotLight.shadow.camera.far = 4000;
+  spotLight.shadow.camera.fov = 30;
+  scene.add( spotLight );
+
   /*var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
   var helper = new THREE.HemisphereLightHelper( light, 5 );
   scene.add( helper );*/
